@@ -49,8 +49,15 @@ public class LoginController extends PopUpController{
      * @return true - if the entered values are correct, false - otherwise
      */
     private boolean verifyUser() {
-         return (HARD_CODED_USER.equals(textFieldUser.getText()) && HARD_CODED_PASSWORD.equals(textFieldPassword.getText()));
-    }
+         //return (HARD_CODED_USER.equals(textFieldUser.getText()) && HARD_CODED_PASSWORD.equals(textFieldPassword.getText()));
+        try {
+            return this.loginModel.isLogin(this.textFieldUser.getText(), this.textFieldPassword.getText());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return false;
+        }
     
     private void setButtonAbility(boolean isAble){
         buttonLogin.setDisable(isAble);
@@ -61,21 +68,31 @@ public class LoginController extends PopUpController{
     @FXML
     public void login() {
         
-        try {
-            if(this.loginModel.isLogin(this.textFieldUser.getText(), this.textFieldPassword.getText())) {
-                Launcher.displayContainer();
-                this.getStage().close();
-            } else {
-                setButtonAbility(true);
-                FxHelper.displayPopUp("Error_PopUp", () -> {
+        if (verifyUser()) {
+            Launcher.displayContainer();
+            this.getStage().close();
+        } else {
+            setButtonAbility(true);
+            FxHelper.displayPopUp("Error_PopUp", () -> {
                 setButtonAbility(false);
-                });
-             } } catch (Exception localException) {
-            //TODO: handle exception
+            });
         }
+    }
+        // try {
+        //     if(this.loginModel.isLogin(this.textFieldUser.getText(), this.textFieldPassword.getText())) {
+        //         Launcher.displayContainer();
+        //         this.getStage().close();
+        //     } else {
+        //         setButtonAbility(true);
+        //         FxHelper.displayPopUp("Error_PopUp", () -> {
+        //         setButtonAbility(false);
+        //         });
+        //      } } catch (Exception localException) {
+        //     //TODO: handle exception
+        // }
         
     
-    }
+    //}
 
     @FXML
     void loginMovementOnClick(MouseEvent event) {
