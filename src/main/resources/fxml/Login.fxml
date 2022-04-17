@@ -15,7 +15,7 @@
    <center>
       <Pane prefHeight="408.0" prefWidth="690.0">
 
-         <ImageView fitHeight="199.0" fitWidth="223.0" layoutX="246.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="199.0" fitWidth="223.0" layoutX="241.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../images/unlucko.png" />
             </image>
