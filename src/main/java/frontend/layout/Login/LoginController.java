@@ -18,9 +18,6 @@ import javafx.scene.layout.HBox;
 public class LoginController extends PopUpController{
 
     LoginModel loginModel = new LoginModel();
-    private static final String HARD_CODED_USER = "admin";
-    private static final String HARD_CODED_PASSWORD = "admin";
-
     @FXML
     private Button buttonClose;
 
@@ -42,18 +39,15 @@ public class LoginController extends PopUpController{
     @FXML
     private PasswordField textFieldPassword;
 
-    private static final String WRONG_ENTRY_ALERT_MESSAGE = "Benutzername oder Passwort ist falsch!";
 
     /**
      * Checks entered user and password against the hard coded values.
      * @return true - if the entered values are correct, false - otherwise
      */
     private boolean verifyUser() {
-         //return (HARD_CODED_USER.equals(textFieldUser.getText()) && HARD_CODED_PASSWORD.equals(textFieldPassword.getText()));
         try {
             return this.loginModel.isLogin(this.textFieldUser.getText(), this.textFieldPassword.getText());
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return false;
@@ -78,22 +72,6 @@ public class LoginController extends PopUpController{
             });
         }
     }
-        // try {
-        //     if(this.loginModel.isLogin(this.textFieldUser.getText(), this.textFieldPassword.getText())) {
-        //         Launcher.displayContainer();
-        //         this.getStage().close();
-        //     } else {
-        //         setButtonAbility(true);
-        //         FxHelper.displayPopUp("Error_PopUp", () -> {
-        //         setButtonAbility(false);
-        //         });
-        //      } } catch (Exception localException) {
-        //     //TODO: handle exception
-        // }
-        
-    
-    //}
-
     @FXML
     void loginMovementOnClick(MouseEvent event) {
         TopStageBar.handleClickAction(event, topPaneLogin);
