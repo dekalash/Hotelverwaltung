@@ -111,7 +111,7 @@ public class LoginController extends PopUpController{
 
     public void initialize(){
         if(this.loginModel.isDatabaseConnected()){
-            this.labelDbStatus.setText("Conntected to Database");
+            this.labelDbStatus.setText("Connected to Database");
         } else {
             this.labelDbStatus.setText("Not Connected to Database");
         }
