@@ -5,6 +5,7 @@ module frontend {
     requires transitive org.json;
     requires transitive java.net.http;
     requires transitive com.google.gson;
+    requires transitive java.sql;
 
     opens frontend.layout to javafx.fxml, javafx.controls;
     opens frontend.button to javafx.fxml, javafx.controls;
@@ -13,4 +14,5 @@ module frontend {
     exports frontend.button;
     exports frontend.util;
     exports frontend.data;
+    exports frontend.dbUtil;
 }
