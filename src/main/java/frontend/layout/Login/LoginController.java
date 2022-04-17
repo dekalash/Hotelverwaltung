@@ -1,11 +1,13 @@
-package frontend.layout;
+package frontend.layout.Login;
 
+import frontend.layout.Launcher;
 import frontend.util.FxHelper;
 import frontend.util.PopUpController;
 import frontend.util.TopStageBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -15,6 +17,7 @@ import javafx.scene.layout.HBox;
 
 public class LoginController extends PopUpController{
 
+    LoginModel loginModel = new LoginModel();
     private static final String HARD_CODED_USER = "admin";
     private static final String HARD_CODED_PASSWORD = "admin";
 
@@ -23,6 +26,9 @@ public class LoginController extends PopUpController{
 
     @FXML
     private Button buttonMinimize;
+
+    @FXML
+    private Label labelDbStatus;
 
     @FXML
     private Button buttonLogin;
@@ -96,4 +102,12 @@ public class LoginController extends PopUpController{
         }
     }
 
+
+    public void initialize(){
+        if(this.loginModel.isDatabaseConnected()){
+            this.labelDbStatus.setText("Conntected to Database");
+        } else {
+            this.labelDbStatus.setText("Not Connected to Database");
+        }
+    }
 }
