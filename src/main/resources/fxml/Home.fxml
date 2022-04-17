@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1061.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.layout.HomeController">
+<children>
+   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="1061.0">
+
+      <right>
+         <VBox alignment="CENTER" prefHeight="366.0" prefWidth="280.0" spacing="50.0" BorderPane.alignment="CENTER">
+            <children>
+               <SplitPane dividerPositions="0.3" orientation="VERTICAL" prefHeight="190.0" prefWidth="160.0" style="-fx-border-radius: 4;">
+                  <items>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-font-size: 22;">
+                        <children>
+                           <Text layoutX="42.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #050505;" text="Freie Räume" />
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: white;">
+                           <children>
+                              <Text fx:id="textFreeRooms" layoutX="68.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 55; -fx-fill: #b9f6ca;" text="24" wrappingWidth="62.9375" />
+                           </children></AnchorPane>
+                  </items>
+               </SplitPane>
+               <SplitPane dividerPositions="0.3" layoutX="50.0" layoutY="151.0" orientation="VERTICAL" prefHeight="190.0" prefWidth="160.0">
+                  <items>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <children>
+                           <Text layoutX="31.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #050505;" text="Belegte Räume" />
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: white;">
+                           <children>
+                              <Text fx:id="textBookedRooms" layoutX="69.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 55; -fx-fill: #f44336;" text="24" />
+                           </children></AnchorPane>
+                  </items>
+               </SplitPane>
+            </children>
+            <padding>
+               <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
+            </padding>
+         </VBox>
+      </right>
+      <center>
+         <AnchorPane prefHeight="500.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+            <children>
+                  <TableView fx:id="tableViewActualRooms" layoutX="36.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="320.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #e0e0e0; -fx-border-width: 2;">
+                    <columns>
+                      <TableColumn fx:id="columnActualRoomNr" minWidth="106.0" prefWidth="106.0" style="-fx-alignment: center; -fx-font-size: 16;" text="Raumnr." />
+                      <TableColumn fx:id="columnActualRoomName" minWidth="106.0" prefWidth="106.0" style="-fx-alignment: center; -fx-font-size: 16;" text="Vorname" />
+                        <TableColumn fx:id="columnActualRoomLastName" minWidth="106.0" prefWidth="106.0" style="-fx-alignment: center; -fx-font-size: 16;" text="Name" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="tableViewPendingRooms" layoutX="432.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="320.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #e0e0e0; -fx-border-width: 2;">
+                     <columns>
+                        <TableColumn fx:id="columnPendingRoomNr" minWidth="106.0" prefWidth="106.0" style="-fx-alignment: center; -fx-font-size: 16;" text="Raumnr." />
+                        <TableColumn fx:id="columnPendingRoomName" minWidth="106.0" prefWidth="106.0" style="-fx-alignment: center; -fx-font-size: 16;" text="Vorname" />
+                        <TableColumn fx:id="columnPendingRoomLastName" minWidth="106.0" prefWidth="106.0" style="-fx-font-size: 16; -fx-alignment: center;" text="Name" />
+                     </columns>
+                  </TableView>
+                  <Label alignment="CENTER" layoutX="47.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="300.0" style="-fx-font-size: 16; -fx-text-fill: #f44336;" text="Check-In (Heute)" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="443.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="300.0" style="-fx-font-size: 16; -fx-text-fill: #03a9f4;" text="Check-Out (Heute)" textAlignment="JUSTIFY" />
+            </children>
+         </AnchorPane>
+      </center>
+   </BorderPane>
+</children>
+</Pane>

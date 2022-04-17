@@ -1,0 +1,54 @@
+[
+    {
+        "bookingId": "1",
+        "checkInDate": "2022-04-01T16:22:54",
+        "checkOutDate": "2022-04-05T16:22:54",
+        "totalPrice": 420.0,
+        "person": {
+            "personId": 1,
+            "firstName": "Simon",
+            "lastName": "Pilger",
+            "birthdate": "02-02-1992",
+            "state": "SB",
+            "zip": "66111",
+            "city": "Alt-Saarbrucken",
+            "street": "KEK",
+            "houseNr": 0,
+            "phone": "041295578",
+            "email": "s.pilger@test.de",
+            "role": "guest",
+            "bookings": [],
+            "registerDate": "2022-04-01T17:10:21",
+            "gender": 0,
+            "phoneNr": "041295578"
+        },
+        "endDate": "2022-04-05T16:22:54",
+        "startDate": "2022-04-01T16:22:54"
+    },
+    {
+        "bookingId": "2",
+        "checkInDate": "2022-04-01T16:22:54",
+        "checkOutDate": "2022-04-05T16:22:54",
+        "totalPrice": 660.0,
+        "person": {
+            "personId": 2,
+            "firstName": "Eric",
+            "lastName": "Tion",
+            "birthdate": "01-01-1999",
+            "state": "SL",
+            "zip": "64234",
+            "city": "Es",
+            "street": "DO",
+            "houseNr": 1,
+            "phone": "016347755",
+            "email": "ste@zz.de",
+            "role": "guest",
+            "bookings": [],
+            "registerDate": "2022-04-01T16:22:54",
+            "gender": 0,
+            "phoneNr": "016347755"
+        },
+        "endDate": "2022-04-05T16:22:54",
+        "startDate": "2022-04-01T16:22:54"
+    }
+]

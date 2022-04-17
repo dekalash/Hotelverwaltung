@@ -1,0 +1,23 @@
+[
+    {
+        "roomTypeId": 1,
+        "roomType": "Small Penthouse",
+        "pricePerNight": 140.0,
+        "singleBeds": 0,
+        "doubleBeds": 2
+    },
+    {
+        "roomTypeId": 2,
+        "roomType": "Large Penthouse",
+        "pricePerNight": 200.0,
+        "singleBeds": 2,
+        "doubleBeds": 2
+    },
+    {
+        "roomTypeId": 3,
+        "roomType": "Ultimate Penthouse",
+        "pricePerNight": 600.0,
+        "singleBeds": 4,
+        "doubleBeds": 3
+    }
+]

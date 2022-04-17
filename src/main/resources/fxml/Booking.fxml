@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="1061.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.layout.BookingController">
+   <children>
+      <TableView fx:id="tableViewBooking" onContextMenuRequested="#showContextMenu" prefHeight="510.0" prefWidth="1061.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #e0e0e0; -fx-border-width: 2;">
+        <columns>
+            <TableColumn fx:id="collumBookingStatus" minWidth="151.57" prefWidth="151.57" style="-fx-font-size: 16; -fx-alignment: center;" text="Status" />
+          <TableColumn fx:id="columnRoomNumber" minWidth="151.57" prefWidth="151.57" style="-fx-font-size: 16; -fx-alignment: center;" text="Raumnr." />
+            <TableColumn fx:id="columnRoomType" minWidth="151.57" prefWidth="151.57" style="-fx-font-size: 16; -fx-alignment: center;" text="Raumtyp" />
+            <TableColumn fx:id="columnFirstName" minWidth="151.57" prefWidth="151.57" style="-fx-font-size: 16; -fx-alignment: center;" text="Vorname" />
+            <TableColumn fx:id="columnLastName" minWidth="151.57" prefWidth="151.57" style="-fx-font-size: 16; -fx-alignment: center;" text="Name" />
+            <TableColumn fx:id="columnStartDate" minWidth="151.57" prefWidth="151.57" style="-fx-font-size: 16; -fx-alignment: center;" text="Anreisedatum" />
+            <TableColumn fx:id="columnEndDate" maxWidth="151.0" minWidth="151.57" prefWidth="151.57" style="-fx-font-size: 16; -fx-alignment: center;" text="Abreisedatum" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonCreateBooking" layoutX="817.0" layoutY="532.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openBookingsPopUp" prefHeight="41.0" prefWidth="230.0" stylesheets="@../css/Stylesheet.css" text="Reservierung erstellen">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

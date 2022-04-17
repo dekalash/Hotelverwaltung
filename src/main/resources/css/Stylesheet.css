@@ -1,0 +1,55 @@
+.Back-round {
+    -fx-background-color:  #03a9f4;
+}
+
+.text-field{
+    -fx-border-width: 3px;
+    -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
+    -fx-pref-column-count : 25;
+}
+
+
+.button {
+    -fx-background-color:  #e6e6e6;
+    -fx-text-fill:  #5b5b5b;
+    -fx-font-size: 19;
+   /* -fx-font-size:  #e0e0e0;*/
+    -fx-border-width: 2;
+}
+
+
+.button:hover {
+    -fx-background-color:  #03a9f4;
+    -fx-text-fill: #ffffff;
+}
+
+
+.button:pressed {
+    -fx-background-color: lightgreen;
+    -fx-text-fill: #ffffff;
+}
+
+.button:disabled{
+    -fx-background-color:  #03a9f4;
+    -fx-text-fill: #ffffff;
+}
+
+
+.PopUp-button {
+    -fx-background-color:  #03a9f4;
+    -fx-text-fill:  #ffffff;
+    -fx-pref-width: 207;
+    -fx-pref-height: 45;
+    -fx-font-size: 20;
+}
+
+.PopUp-button:hover{
+    -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+
+.PopUp-button:pressed {
+    -fx-background-color: lightgreen;
+    -fx-text-fill: #ffffff;
+}

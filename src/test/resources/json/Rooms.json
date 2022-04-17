@@ -1,0 +1,194 @@
+[
+    {
+        "roomId": "1",
+        "name": "Saarblick Penthouse 1",
+        "bookings": [
+            {
+                "bookingId": 1,
+                "checkInDate": "2022-04-08",
+                "checkOutDate": "2022-04-25",
+                "totalPrice": 420.0,
+                "person": {
+                    "personId": 1,
+                    "firstName": "Simonn",
+                    "lastName": "Pilger",
+                    "birthdate": "01-01-1999",
+                    "state": "Saarland",
+                    "zip": "64646",
+                    "city": "Ts",
+                    "street": "Streetb",
+                    "houseNr": 0,
+                    "phone": "+4912267841",
+                    "email": "s.pilger@test.de",
+                    "role": "guest",
+                    "bookings": [],
+                    "registerDate": "2022-04-01T17:10:21",
+                    "gender": 1,
+                    "phoneNr": "+4912267841"
+                }
+            },
+            {
+                "bookingId": 3,
+                "checkInDate": "2022-04-21",
+                "checkOutDate": "2022-04-28",
+                "totalPrice": 0.0,
+                "person": {
+                    "personId": 13,
+                    "firstName": "Max",
+                    "lastName": "Mann",
+                    "birthdate": "01-01-1999",
+                    "state": "Saarland",
+                    "zip": "74894",
+                    "city": "Vk",
+                    "street": "Streeth",
+                    "houseNr": 0,
+                    "phone": "+4912267841",
+                    "email": "aa@example.com",
+                    "role": "guest",
+                    "bookings": [],
+                    "registerDate": "2022-04-02T17:21:16",
+                    "gender": 0,
+                    "phoneNr": "+4912267841"
+                }
+            },
+            {
+                "bookingId": 4,<<
+                "checkInDate": "2022-04-26",
+                "checkOutDate": "2022-04-29",
+                "totalPrice": 0.0,
+                "person": {
+                    "personId": 13,
+                    "firstName": "Max",
+                    "lastName": "Mann",
+                    "birthdate": "01-01-1999",
+                    "state": "Saarland",
+                    "zip": "74894",
+                    "city": "Vk",
+                    "street": "Streeth",
+                    "houseNr": 0,
+                    "phone": "+4912267841",
+                    "email": "aa@example.com",
+                    "role": "guest",
+                    "bookings": [],
+                    "registerDate": "2022-04-02T17:21:16",
+                    "gender": 0,
+                    "phoneNr": "+4912267841"
+                }
+            },
+            {
+                "bookingId": 5,
+                "checkInDate": "2022-04-28",
+                "checkOutDate": "2022-04-30",
+                "totalPrice": 0.0,
+                "person": {
+                    "personId": 13,
+                    "firstName": "Max",
+                    "lastName": "Mann",
+                    "birthdate": "01-01-1999",
+                    "state": "Saarland",
+                    "zip": "74894",
+                    "city": "Vk",
+                    "street": "Streeth",
+                    "houseNr": 0,
+                    "phone": "+4912267841",
+                    "email": "aa@example.com",
+                    "role": "guest",
+                    "bookings": [],
+                    "registerDate": "2022-04-02T17:21:16",
+                    "gender": 0,
+                    "phoneNr": "+4912267841"
+                }
+            }
+        ],
+        "status": 0,
+        "furniture": [],
+        "roomType": {
+            "roomTypeId": 1,
+            "roomType": "Small Penthouse",
+            "pricePerNight": 140.0,
+            "singleBeds": 0,
+            "doubleBeds": 2
+        }
+    },
+    {
+        "roomId": "2",
+        "name": "Saarblick Penthouse 2",
+        "bookings": [
+            {
+                "bookingId": 2,
+                "checkInDate": "2022-04-20",
+                "checkOutDate": "2022-04-26",
+                "totalPrice": 660.0,
+                "person": {
+                    "personId": 2,
+                    "firstName": "Eric",
+                    "lastName": "Tion",
+                    "birthdate": "01-01-1999",
+                    "state": "Saarland",
+                    "zip": "64234",
+                    "city": "Es",
+                    "street": "Streetx",
+                    "houseNr": 1,
+                    "phone": "016347755",
+                    "email": "ste@zz.de",
+                    "role": "guest",
+                    "bookings": [],
+                    "registerDate": "2022-04-01T16:22:54",
+                    "gender": 0,
+                    "phoneNr": "016347755"
+                }
+            }
+        ],
+        "status": 0,
+        "furniture": [],
+        "roomType": {
+            "roomTypeId": 1,
+            "roomType": "Small Penthouse",
+            "pricePerNight": 140.0,
+            "singleBeds": 0,
+            "doubleBeds": 2
+        }
+    },
+    {
+        "roomId": "3",
+        "name": "Saarblick Penthouse 3",
+        "bookings": [],
+        "status": 0,
+        "furniture": [],
+        "roomType": {
+            "roomTypeId": 2,
+            "roomType": "Large Penthouse",
+            "pricePerNight": 200.0,
+            "singleBeds": 2,
+            "doubleBeds": 2
+        }
+    },
+    {
+        "roomId": "4",
+        "name": "Saarblick Penthouse 4",
+        "bookings": [],
+        "status": 0,
+        "furniture": [],
+        "roomType": {
+            "roomTypeId": 2,
+            "roomType": "Large Penthouse",
+            "pricePerNight": 200.0,
+            "singleBeds": 2,
+            "doubleBeds": 2
+        }
+    },
+    {
+        "roomId": "5",
+        "name": "Saarblick Penthouse 5",
+        "bookings": [],
+        "status": 0,
+        "furniture": [],
+        "roomType": {
+            "roomTypeId": 3,
+            "roomType": "Ultimate Penthouse",
+            "pricePerNight": 600.0,
+            "singleBeds": 4,
+            "doubleBeds": 3
+        }
+    }
+]

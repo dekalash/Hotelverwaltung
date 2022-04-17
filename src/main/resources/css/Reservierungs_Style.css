@@ -1,0 +1,24 @@
+.button
+{
+
+    -fx-skin:"frontend.button.Button_Hover";
+    -fx-border-radius: 4px;
+    -fx-background-color:  #03a9f4;
+    -fx-background-radius: 4px;
+
+}
+
+Button:pressed{-fx-translate-y: 3px}
+
+Button:hover{-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);}
+
+
+
+
+
+
+
+
+
+
+

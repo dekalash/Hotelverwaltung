@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane id="Personal_Pane" fx:id="Personal_Pane" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="523.0" style="-fx-border-color: #e0e0e0; -fx-border-width: 2; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.layout.Staff_PopUpController">
+   <children>
+
+      <HBox fx:id="staffTopPane" alignment="CENTER_RIGHT" onMouseClicked="#staffPopupMovementOnClick" onMouseDragged="#staffPopupMovementOnDrag" prefHeight="42.0" prefWidth="523.0" spacing="8.0" style="-fx-background-color: #03a9f4;">
+         <children>
+            <Button fx:id="buttonMinimize" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#minimizeStaffPopup" prefHeight="25.0" prefWidth="37.0" style="-fx-background-color: transparent; -fx-text-fill: black;" text="─">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="buttonClose" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="310.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeStaffPopup" prefHeight="28.0" prefWidth="45.0" style="-fx-background-color: transparent; -fx-text-fill: red;" text="X">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+         </children>
+         <padding>
+            <Insets right="8.0" />
+         </padding>
+      </HBox>
+
+      <TextField id="TextField_Personal_Name" fx:id="textFieldStaffLastName" layoutX="63.0" layoutY="102.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Name" stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField id="TextField_Personal_Vorname" fx:id="textFieldStaffFirstName" layoutX="63.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Vorname" stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField id="TextField_Personal_PLZ" fx:id="textFieldStaffPLZ" layoutX="63.0" layoutY="282.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="PLZ" stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField id="TextField_Personal_Stadt" fx:id="textFieldStaffCity" layoutX="63.0" layoutY="342.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Stadt" stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField id="TextField_Personal_Straße" fx:id="textFieldStaffStreet" layoutX="63.0" layoutY="404.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Straße" stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField id="TextField_Personal_HausNr." fx:id="textFieldStaffHouseNr" layoutX="63.0" layoutY="464.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="HausNr." stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <TextField id="TextField_Personal_E-Mail" fx:id="textFieldStaffEMail" layoutX="63.0" layoutY="585.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="E-Mail" stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField id="TextField_Personal_TelefonNr." fx:id="textFieldStaffPhoneNr" layoutX="63.0" layoutY="645.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="TelefonNr." stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField id="Textfield_Personal_Geschlecht" fx:id="textFieldStaffGender" layoutX="63.0" layoutY="705.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="389.0" promptText="Geschlecht" stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <TextField id="Textfield_Personal_Land" fx:id="textFieldStaffState" layoutX="63.0" layoutY="525.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Land" stylesheets="@../css/Stylesheet.css">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Button id="Button_Reservierung_Reservieren" fx:id="buttonStaffPopUp" alignment="CENTER" layoutX="158.0" layoutY="765.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#create" prefHeight="45.0" prefWidth="207.0" styleClass="PopUp-button" stylesheets="@../css/Stylesheet.css" text="Bestätigen" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <DatePicker fx:id="datePickerStaffBirthDate" layoutX="63.0" layoutY="222.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#getBirthDate" prefHeight="42.0" prefWidth="398.0" promptText="Geburtsdatum" style="-fx-font-size: 16;" stylesheets="@../css/Stylesheet.css" />
+      <Text fx:id="textBirthDate" layoutX="731.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+</Pane>

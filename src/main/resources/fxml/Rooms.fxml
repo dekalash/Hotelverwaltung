@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="1061.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.layout.RoomsController">
+   <children>
+      <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onContextMenuRequested="#showContextMenu" prefHeight="510.0" prefWidth="1061.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #e0e0e0; -fx-border-width: 2;">
+         <columns>
+            <!-- indikator column must not have text set -->
+            <TableColumn fx:id="columnIndicator" minWidth="120.0" prefWidth="50.0" style="-fx-font-size: 16; -fx-alignment: center;" text="Status" />
+
+            <TableColumn fx:id="columnRoomNumber" minWidth="175.0" prefWidth="195.0" style="-fx-font-size: 16; -fx-alignment: center;" text="Raumnr." />
+            <TableColumn fx:id="columnRoomType" minWidth="175.0" prefWidth="195.0" style="-fx-font-size: 16; -fx-alignment: center;" text="Raumtyp" />
+            <TableColumn fx:id="columnPrice" minWidth="175.0" prefWidth="180.0" style="-fx-font-size: 16; -fx-alignment: center;" text="Preis" />
+            <TableColumn fx:id="columnOneBedRoom" minWidth="175.0" prefWidth="184.4000244140625" style="-fx-font-size: 16; -fx-alignment: center;" text="Einzelbetten" />
+            <TableColumn fx:id="columnTwoBedRoom" minWidth="175.0" prefWidth="184.4000244140625" style="-fx-font-size: 16; -fx-alignment: center;" text="Doppelbetten" />
+         </columns>
+      </TableView>
+      <Button fx:id="buttonCreateRoom" layoutX="886.0" layoutY="531.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createRoom" prefHeight="41.0" prefWidth="161.0" stylesheets="@../css/Stylesheet.css" text="Raum erstellen" />
+   </children>
+</Pane>
