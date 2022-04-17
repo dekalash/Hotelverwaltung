@@ -17,7 +17,7 @@
 
          <ImageView fitHeight="199.0" fitWidth="223.0" layoutX="246.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../images/logoKnuth.png" />
+               <Image url="@../images/unlucko.png" />
             </image>
          </ImageView>
          <TextField fx:id="textFieldUser" layoutX="65.0" layoutY="220.0" onKeyPressed="#keyPressedLogin" prefHeight="54.0" prefWidth="561.0" promptText="Benutzer/E-Mail" style="-fx-border-color: transparent;" stylesheets="@../css/Stylesheet.css">
