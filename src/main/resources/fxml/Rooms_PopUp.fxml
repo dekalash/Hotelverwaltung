@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="465.0" prefWidth="954.0" style="-fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #e0e0e0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.layout.RoomsPopUpController">
+<Pane prefHeight="465.0" prefWidth="954.0" style="-fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #e0e0e0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.layout.Rooms.RoomsPopUpController">
    <children>
 
       <HBox fx:id="roomTopPane" alignment="CENTER_RIGHT" onMouseClicked="#roomPopupMovementOnClick" onMouseDragged="#roomPopupMovementOnDrag" prefHeight="42.0" prefWidth="954.0" spacing="8.0" style="-fx-background-color: #03a9f4;">

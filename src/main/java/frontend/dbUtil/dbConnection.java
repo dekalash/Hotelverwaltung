@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class dbConnection {
-    private static final String CONN = "jdbc:sqlite:Hotelverwaltung.db";
+    private static final String CONN = "jdbc:sqlite:Hotelverwaltung.sqlite";
 
 
 public static Connection getConnection() throws SQLException{

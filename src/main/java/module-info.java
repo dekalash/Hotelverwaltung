@@ -15,6 +15,11 @@ module frontend {
     opens frontend.button to javafx.fxml, javafx.controls;
 
     exports frontend.layout;
+    exports frontend.layout.Booking;
+    exports frontend.layout.Home;
+    exports frontend.layout.Login;
+    exports frontend.layout.Rooms;
+    exports frontend.layout.Staff;
     exports frontend.button;
     exports frontend.util;
     exports frontend.data;

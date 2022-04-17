@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane id="Reservierung_Pane" fx:id="Reservierung_Pane" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="904.0" prefWidth="523.0" style="-fx-border-width: 2; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.layout.BookingPopUpController">
+<Pane id="Reservierung_Pane" fx:id="Reservierung_Pane" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="904.0" prefWidth="523.0" style="-fx-border-width: 2; -fx-border-color: #e0e0e0; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.layout.Booking.BookingPopUpController">
    <children>
       <HBox fx:id="bookingTopPane" alignment="CENTER_RIGHT" onMouseClicked="#bookingPopupMovementOnClick" onMouseDragged="#bookingPopupMovementOnDrag" prefHeight="42.0" prefWidth="523.0" spacing="8.0" style="-fx-background-color: #03a9f4;">
          <children>
