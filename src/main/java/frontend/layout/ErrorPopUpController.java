@@ -1,5 +1,7 @@
 package frontend.layout;
 
+import frontend.util.PopUpController;
+import frontend.util.TopStageBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

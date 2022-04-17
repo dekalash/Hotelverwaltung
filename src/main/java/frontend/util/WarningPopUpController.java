@@ -1,6 +1,5 @@
-package frontend.layout;
+package frontend.util;
 
-import frontend.util.Box;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

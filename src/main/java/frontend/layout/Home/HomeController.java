@@ -1,7 +1,10 @@
-package frontend.layout;
+package frontend.layout.Home;
 
 import frontend.data.Booking;
 import frontend.data.IndicatorEnum;
+import frontend.layout.Booking.BookingController;
+import frontend.layout.Rooms.RoomsController;
+import frontend.util.MainController;
 import frontend.util.Table;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

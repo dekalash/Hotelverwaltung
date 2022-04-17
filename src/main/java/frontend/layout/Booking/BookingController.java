@@ -1,4 +1,4 @@
-package frontend.layout;
+package frontend.layout.Booking;
 
 
 import frontend.data.Booking;
@@ -6,6 +6,7 @@ import frontend.data.IndicatorEnum;
 import frontend.util.BackendExceptionHandler;
 import frontend.util.ContextMenuTable;
 import frontend.util.FxHelper;
+import frontend.util.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

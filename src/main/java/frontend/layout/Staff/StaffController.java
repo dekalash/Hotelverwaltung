@@ -1,4 +1,4 @@
-package frontend.layout;
+package frontend.layout.Staff;
 
 import frontend.data.Staff;
 import frontend.util.BackendExceptionHandler;
@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 
 import frontend.util.ContextMenuTable;
 import frontend.util.FxHelper;
+import frontend.util.MainController;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 

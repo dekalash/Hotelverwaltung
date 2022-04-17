@@ -1,9 +1,11 @@
-package frontend.layout;
+package frontend.layout.Rooms;
 
 import frontend.data.Room;
 import frontend.util.BackendException;
 import frontend.util.BackendExceptionHandler;
 import frontend.util.FxHelper;
+import frontend.util.PopUpController;
+import frontend.util.TopStageBar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

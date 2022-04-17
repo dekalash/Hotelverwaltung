@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import frontend.util.FxHelper;
+import frontend.util.TopStageBar;
 
 public class ContainerController implements Initializable {
 

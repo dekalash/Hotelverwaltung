@@ -6,9 +6,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import frontend.layout.ContainerController;
-import frontend.layout.MainController;
-import frontend.layout.PopUpController;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

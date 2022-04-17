@@ -1,4 +1,4 @@
-package frontend.layout;
+package frontend.util;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;

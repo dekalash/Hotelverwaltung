@@ -1,4 +1,4 @@
-package frontend.layout;
+package frontend.layout.Rooms;
 
 import frontend.data.Booking;
 import frontend.data.IndicatorEnum;
@@ -6,6 +6,7 @@ import frontend.data.Room;
 import frontend.util.BackendExceptionHandler;
 import frontend.util.ContextMenuTable;
 import frontend.util.FxHelper;
+import frontend.util.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

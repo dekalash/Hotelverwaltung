@@ -1,7 +1,9 @@
-package frontend.layout;
+package frontend.layout.Staff;
 
 import frontend.util.BackendException;
 import frontend.util.FxHelper;
+import frontend.util.PopUpController;
+import frontend.util.TopStageBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

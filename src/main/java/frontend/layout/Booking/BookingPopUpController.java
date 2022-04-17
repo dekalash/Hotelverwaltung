@@ -1,4 +1,4 @@
-package frontend.layout;
+package frontend.layout.Booking;
 
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
@@ -9,6 +9,8 @@ import frontend.data.IndicatorEnum;
 import frontend.data.Room;
 import frontend.util.BackendExceptionHandler;
 import frontend.util.FxHelper;
+import frontend.util.PopUpController;
+import frontend.util.TopStageBar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

@@ -1,4 +1,6 @@
-package frontend.layout;
+package frontend.util;
+
+import frontend.layout.ContainerController;
 
 /**
  * Controllers controlling main views should extend this class.
