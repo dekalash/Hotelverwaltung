@@ -7,7 +7,11 @@ module frontend {
     requires transitive com.google.gson;
     requires transitive java.sql;
 
-    opens frontend.layout to javafx.fxml, javafx.controls;
+    opens frontend.layout.Login to javafx.fxml, javafx.controls;
+    opens frontend.layout.Home to javafx.fxml, javafx.controls;
+    opens frontend.layout.Rooms to javafx.fxml, javafx.controls;
+    opens frontend.layout.Booking to javafx.fxml, javafx.controls;
+    opens frontend.layout.Staff to javafx.fxml, javafx.controls;
     opens frontend.button to javafx.fxml, javafx.controls;
 
     exports frontend.layout;
