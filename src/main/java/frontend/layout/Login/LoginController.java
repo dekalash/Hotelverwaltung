@@ -60,15 +60,21 @@ public class LoginController extends PopUpController{
 
     @FXML
     public void login() {
-        if (verifyUser()) {
-            Launcher.displayContainer();
-            this.getStage().close();
-        } else {
-            setButtonAbility(true);
-            FxHelper.displayPopUp("Error_PopUp", () -> {
+        
+        try {
+            if(this.loginModel.isLogin(this.textFieldUser.getText(), this.textFieldPassword.getText())) {
+                Launcher.displayContainer();
+                this.getStage().close();
+            } else {
+                setButtonAbility(true);
+                FxHelper.displayPopUp("Error_PopUp", () -> {
                 setButtonAbility(false);
-            });
+                });
+             } } catch (Exception localException) {
+            //TODO: handle exception
         }
+        
+    
     }
 
     @FXML

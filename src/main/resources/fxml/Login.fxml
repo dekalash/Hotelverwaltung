@@ -38,7 +38,7 @@
                <Insets bottom="20.0" top="20.0" />
             </BorderPane.margin>
          </Button>
-         <Label fx:id="labelDbStatus" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="60.0" text="DB Status" />
+         <Label fx:id="labelDbStatus" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" text="DB Status" />
       </Pane>
    </bottom>
    <top>
