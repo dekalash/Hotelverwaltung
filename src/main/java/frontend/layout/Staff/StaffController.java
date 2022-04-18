@@ -2,6 +2,7 @@ package frontend.layout.Staff;
 
 import java.sql.SQLException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import frontend.data.PersonData;
@@ -41,7 +42,7 @@ public class StaffController extends MainController {
     static ObservableList<PersonData> staffList;
 
     private String sqlloadStaffData = "SELECT * FROM person WHERE role = 'staff'";
-
+    private String sqlDeleteStaff = "DELETE FROM person where email = ?";
     
     private dbConnection dc;
     
@@ -87,8 +88,9 @@ public class StaffController extends MainController {
      * Initializes the context menu.
      */
     private void setUpMenuItems() {
-        this.table.addAutoUpdatingMenuItem("Löschen", (staff) -> tableViewStaff.getItems().removeAll(staff));
+        this.table.addAutoUpdatingMenuItem("Löschen", (staff) -> deleteStaff());
     }
+
 
     /**
      * Executed when right clicking the table view.
@@ -117,7 +119,24 @@ public class StaffController extends MainController {
         }
         setUpCellFactories();
     }
+    public void deleteStaff(){
+        String email = tableViewStaff.getSelectionModel().getSelectedItem().getEmail();
+        try {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sqlDeleteStaff);
+        
+            stmt.setString(1, email);
+            stmt.execute();
+            conn.close();
+                
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                
+                
+                
 
+    }
     @FXML
     void initialize() {
         this.table = new ContextMenuTable<PersonData>(tableViewStaff, () -> staffList);
