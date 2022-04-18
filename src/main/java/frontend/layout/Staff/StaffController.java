@@ -29,6 +29,9 @@ public class StaffController extends MainController {
     private Button buttonAddStaff;
 
     @FXML
+    private Button buttonReloadData;
+    
+    @FXML
     private TableView<PersonData> tableViewStaff;
 
     @FXML
