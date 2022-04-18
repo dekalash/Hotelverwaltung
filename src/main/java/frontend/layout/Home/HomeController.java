@@ -102,8 +102,8 @@ public class HomeController extends MainController{
 
     @FXML
     void initialize() {
-       getFreeRoomsNumber();
-       getBookedRoomsNumber();
+       //getFreeRoomsNumber();
+       //getBookedRoomsNumber();
 
 
         
