@@ -25,7 +25,7 @@ public class RoomsController extends MainController {
 
     //TODO test initialisation
     @FXML
-    public TableView<RoomsData> tableView;
+    public TableView<RoomsData> tableViewRooms;
 
     @FXML
     private Button buttonCreateRoom;
@@ -89,6 +89,8 @@ public class RoomsController extends MainController {
         columnPrice.setCellValueFactory(new PropertyValueFactory<RoomsData, Double>("price"));
         columnOneBedRoom.setCellValueFactory(new PropertyValueFactory<RoomsData, String>("singleBeds"));
         columnTwoBedRoom.setCellValueFactory(new PropertyValueFactory<RoomsData, String>("doubleBeds"));
+        this.tableViewRooms.setItems(null);
+        this.tableViewRooms.setItems(roomList);
     }
 
     /**
@@ -136,12 +138,12 @@ public class RoomsController extends MainController {
     /**
      * Initializes the context menu.
      */
-    // private void setUpMenuItems() {
-    //     table.addAutoUpdatingMenuItem(MENU_ITEM_MAINTENANCE, room -> room.setIndicator(IndicatorEnum.Gewartet));
-    //     table.addAutoUpdatingMenuItem(MENU_ITEM_DELETE, room -> {
-    //         BackendExceptionHandler.execute( () -> tableView.getItems().removeAll(room));
-    //     });
-    // }
+    // // // // // // private void setUpMenuItems() {
+    // // // // // //     table.addAutoUpdatingMenuItem(MENU_ITEM_MAINTENANCE, room -> room.setIndicator(IndicatorEnum.Gewartet));
+    // // // // // //     table.addAutoUpdatingMenuItem(MENU_ITEM_DELETE, room -> {
+    // // // // // //         BackendExceptionHandler.execute( () -> tableView.getItems().removeAll(room));
+    // // // // // //     });
+    // // // // // // }
 
     public void loadRoomsData(){
 
@@ -168,6 +170,7 @@ public class RoomsController extends MainController {
     public void showContextMenu() {
         table.supressMenuIfNoSelection();
     }
+    
     @FXML
     public void initialize() {
         this.dc = new dbConnection();
