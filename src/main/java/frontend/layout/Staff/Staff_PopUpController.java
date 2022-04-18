@@ -1,6 +1,5 @@
 package frontend.layout.Staff;
 
-import frontend.util.BackendException;
 import frontend.util.FxHelper;
 import frontend.util.PopUpController;
 import frontend.util.TopStageBar;
@@ -18,7 +17,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 
-import frontend.data.Staff;
 import frontend.dbUtil.dbConnection;
 
 public class Staff_PopUpController extends PopUpController {
@@ -41,6 +39,7 @@ public class Staff_PopUpController extends PopUpController {
     @FXML
     private TextField textFieldLastName;
 
+    StaffController staffController;
 
     @FXML
     private Button buttonClose;
@@ -54,11 +53,12 @@ public class Staff_PopUpController extends PopUpController {
     @FXML
     private Text textBirthDate;
 
-    private String sqlAddStaff = "INSERT INTO person(lastName, firstName, DOB, steet, email, role) VALUES (?, ?, ?, ? ,? ,?)";
+    private String sqlAddStaff = "INSERT INTO person(lastName, firstName, DOB, street, email, role) VALUES (?, ?, ?, ? ,? ,?)";
     @FXML
     void closeStaffPopup(ActionEvent event) {
          TopStageBar.close(event, buttonClose);
-    }
+        
+        }
 
     @FXML
     void minimizeStaffPopup(ActionEvent event) {
@@ -97,7 +97,6 @@ public class Staff_PopUpController extends PopUpController {
                 
                 stmt.execute();
                 conn.close();
-        
         } catch (SQLException e) {
                 e.printStackTrace();
         }
@@ -113,43 +112,10 @@ public class Staff_PopUpController extends PopUpController {
                      });
                      System.out.println(exception);
                  }
-        
-        
-        // String firstName = textFieldStaffFirstName.getText();
-        // String lastName = textFieldStaffLastName.getText();
-        // String phone = textFieldStaffPhoneNr.getText();
-        // String gender = textFieldStaffGender.getText();
-        // int genderToInt = Integer.parseInt(gender);
-        // String street = textFieldStaffStreet.getText();
-        // String houseNR = textFieldStaffHouseNr.getText();
-        // int houseNRToInt = Integer.parseInt(houseNR);
-        // String city = textFieldStaffCity.getText();
-        // String state = textFieldStaffState.getText();
-        // String zip = textFieldStaffPLZ.getText();
-        // String email = textFieldStaffEMail.getText();
-
-           
-        //    try {
-        //         Staff.add(firstName, lastName, email, phone, genderToInt, street, houseNRToInt, city, state, zip);
-        // } catch (BackendException e) {
-        //         // TODO Auto-generated catch block
-        //         e.printStackTrace();
-        // }
-        // try{
-        
-        //     closeStaffPopup(event);
-
-        // }catch (Exception exception){
-        //     buttonStaffPopUp.setDisable(true);
-        //     FxHelper.displayPopUp("Error_PopUp", () -> {
-        //         buttonStaffPopUp.setDisable(false);
-        //     });
-        //     System.out.println(exception);
-        // }
     }
 
     @FXML
     void initialize() {
-        
+        staffController = new StaffController();
     }
 }

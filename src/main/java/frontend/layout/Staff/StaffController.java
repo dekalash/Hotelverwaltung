@@ -31,16 +31,16 @@ public class StaffController extends MainController {
     private TableView<PersonData> tableViewStaff;
 
     @FXML
-    private TableColumn<PersonData, String> columnPersonalLastName;
+    private TableColumn<PersonData, String> columnLastName;
 
     @FXML
-    private TableColumn<PersonData, String> columnPersonalFirstName;
+    private TableColumn<PersonData, String> columnFirstName;
 
     private ContextMenuTable<PersonData> table;
 
     static ObservableList<PersonData> staffList;
 
-    private String sqlloadStaffData = "SELECT * FROM person";
+    private String sqlloadStaffData = "SELECT * FROM person WHERE role = 'staff'";
 
     
     private dbConnection dc;
@@ -63,21 +63,21 @@ public class StaffController extends MainController {
      * Sets the columns' cell factories.
      */
     private void setUpCellFactories() {
-        columnPersonalFirstName.setCellValueFactory(new PropertyValueFactory<PersonData, String>("firstName"));
-        columnPersonalLastName.setCellValueFactory(new PropertyValueFactory<PersonData, String>("lastName"));
-        //this.tableViewStaff.setItems(null);
+        columnFirstName.setCellValueFactory(new PropertyValueFactory<PersonData, String>("firstName"));
+        columnLastName.setCellValueFactory(new PropertyValueFactory<PersonData, String>("lastName"));
+        this.tableViewStaff.setItems(null);
         this.tableViewStaff.setItems(staffList);
     }
 
     private void editCellFactories() {
         tableViewStaff.setEditable(true);
-        columnPersonalFirstName.setCellFactory(TextFieldTableCell.forTableColumn());
-        columnPersonalFirstName.setOnEditCommit(event -> {
+        columnFirstName.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnFirstName.setOnEditCommit(event -> {
             PersonData staff = event.getRowValue();
             staff.setFirstName(event.getNewValue());
         });
-        columnPersonalLastName.setCellFactory(TextFieldTableCell.forTableColumn());
-        columnPersonalLastName.setOnEditCommit(event -> {
+        columnLastName.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnLastName.setOnEditCommit(event -> {
             PersonData staff = event.getRowValue();
             staff.setLastName(event.getNewValue());
         });
@@ -98,7 +98,7 @@ public class StaffController extends MainController {
     }
     
 
-    private void loadStaffData(){
+    public void loadStaffData(){
 
         try {
             
@@ -125,10 +125,6 @@ public class StaffController extends MainController {
         //FIXME: setUpMenuItems();
         editCellFactories();
 
-        assert buttonAddStaff != null : "fx:id=\"ButtonAddStaff\" was not injected: check your FXML file 'Staff.fxml'.";
-        assert tableViewStaff != null : "fx:id=\"staffTab\" was not injected: check your FXML file 'Staff.fxml'.";
-        assert columnPersonalFirstName != null
-                : "fx:id=\"nameCol\" was not injected: check your FXML file 'Staff.fxml'.";
 
     }
 }
