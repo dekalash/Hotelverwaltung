@@ -129,14 +129,7 @@ public class RoomsPopUpController extends PopUpController {
     void initialize() {
         //comboBoxRoomType.setItems(roomTypeList);
 
-        assert buttonClose != null : "fx:id=\"close\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
-        assert textFieldNames != null : "fx:id=\"textFieldNames\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
-        assert textFieldFloor != null : "fx:id=\"Floor\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
-        assert buttonAdd != null : "fx:id=\"addButton\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
-        assert buttonMinimize != null : "fx:id=\"minimize\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
-        assert textFieldRoomNumber != null
-                : "fx:id=\"roomNumber\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
-        assert roomTopPane != null : "fx:id=\"roomTopPane\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
+
     }
 
 }
