@@ -54,31 +54,6 @@ public class RoomsController extends MainController {
     private dbConnection dc;
 
     static ObservableList<RoomsData> roomList;
-
-    
-
-    // public static void addRoom(Room room) {
-    //     roomList.add(room);
-    // }
-
-   public  static  ObservableList<Room> getRoomList1() {
-       //ObservableList<Booking> bookinglist = BookingController.getBookingList();
-       ObservableList<Room> roomlist = BackendExceptionHandler.executeReturnNullIfException(() -> Room.fetchAll());
-
-       
-
-      // for (int i = bookinglist.size() - 1; i >= 0; i--) {
-       //    for (int j = roomlist.size() - 1; j >= 0; j--){
-       //       Booking booking = bookinglist.get(i);
-       //       Room room = roomlist.get(j);
-       //      if (booking.roomNr.get() == room.getRoomNumber()) {
-        //         room.setIndicator(booking.getIndicator());
-       //       }
-       ///  }
-//
-       return roomlist;
-    }
-
     /**
      * Sets the columns' cell factories.
      */
@@ -138,12 +113,12 @@ public class RoomsController extends MainController {
     /**
      * Initializes the context menu.
      */
-    // // // // // // private void setUpMenuItems() {
-    // // // // // //     table.addAutoUpdatingMenuItem(MENU_ITEM_MAINTENANCE, room -> room.setIndicator(IndicatorEnum.Gewartet));
-    // // // // // //     table.addAutoUpdatingMenuItem(MENU_ITEM_DELETE, room -> {
-    // // // // // //         BackendExceptionHandler.execute( () -> tableView.getItems().removeAll(room));
-    // // // // // //     });
-    // // // // // // }
+    //  private void setUpMenuItems() {
+    //      table.addAutoUpdatingMenuItem(MENU_ITEM_MAINTENANCE, room -> room.setIndicator(IndicatorEnum.Gewartet));
+    //      table.addAutoUpdatingMenuItem(MENU_ITEM_DELETE, room -> {
+    //         BackendExceptionHandler.execute( () -> tableView.getItems().removeAll(room));
+    //      });
+    //  }
 
     public void loadRoomsData(){
 

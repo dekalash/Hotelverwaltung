@@ -56,27 +56,27 @@ public class HomeController extends MainController{
     Table<Booking> tablePending;
 
 
-    private void getBookedRoomsNumber(){
-       long bookedRoomsNumber = RoomsController.getRoomList1().stream().filter(room -> room.getIndicator() == IndicatorEnum.Gebucht).count();
-       String bookedRoomsNumberString = String.valueOf(bookedRoomsNumber);
-        if(bookedRoomsNumberString.length() != 1){
-            textBookedRooms.setText(bookedRoomsNumberString);
-        }else{
-            String string = "0" + bookedRoomsNumberString;
-            textBookedRooms.setText(string);
-        }
-    }
+    // private void getBookedRoomsNumber(){
+    //    long bookedRoomsNumber = RoomsController.getRoomList1().stream().filter(room -> room.getIndicator() == IndicatorEnum.Gebucht).count();
+    //    String bookedRoomsNumberString = String.valueOf(bookedRoomsNumber);
+    //     if(bookedRoomsNumberString.length() != 1){
+    //         textBookedRooms.setText(bookedRoomsNumberString);
+    //     }else{
+    //         String string = "0" + bookedRoomsNumberString;
+    //         textBookedRooms.setText(string);
+    //     }
+    // }
 
-    private void getFreeRoomsNumber(){
-        long freeRoomsNumber = RoomsController.getRoomList1().stream().filter(room -> room.getIndicator() == IndicatorEnum.Frei).count();
-        String freeRoomsNumberString = String.valueOf(freeRoomsNumber);
-        if(freeRoomsNumberString.length() != 1){
-            textFreeRooms.setText(freeRoomsNumberString);
-        }else{
-            String string = "0" + freeRoomsNumberString;
-            textFreeRooms.setText(string);
-        }
-    }
+    // private void getFreeRoomsNumber(){
+    //     long freeRoomsNumber = RoomsController.getRoomList1().stream().filter(room -> room.getIndicator() == IndicatorEnum.Frei).count();
+    //     String freeRoomsNumberString = String.valueOf(freeRoomsNumber);
+    //     if(freeRoomsNumberString.length() != 1){
+    //         textFreeRooms.setText(freeRoomsNumberString);
+    //     }else{
+    //         String string = "0" + freeRoomsNumberString;
+    //         textFreeRooms.setText(string);
+    //     }
+    // }
 
     private ObservableList<Booking> getBookedRoomsActual(){
         ObservableList<Booking> bookinglist = BookingController.getBookingListActualy();

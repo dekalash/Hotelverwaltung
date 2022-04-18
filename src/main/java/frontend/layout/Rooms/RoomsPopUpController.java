@@ -1,6 +1,11 @@
 package frontend.layout.Rooms;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import frontend.data.Room;
+import frontend.dbUtil.dbConnection;
 import frontend.util.BackendException;
 import frontend.util.BackendExceptionHandler;
 import frontend.util.FxHelper;
@@ -25,7 +30,14 @@ public class RoomsPopUpController extends PopUpController {
     @FXML
     private TextField textFieldRoomNumber;
 
-
+    @FXML
+    private TextField textFieldRoomType;
+    @FXML
+    private TextField textFieldPrice;
+    @FXML
+    private TextField textFieldSingleBeds;
+    @FXML
+    private TextField textFieldDoubleBeds;
     @FXML
     private Button buttonClose;
 
@@ -38,9 +50,10 @@ public class RoomsPopUpController extends PopUpController {
     @FXML
     private HBox roomTopPane;
 
-    @FXML
-    private ComboBox<String> comboBoxRoomType;
+    //@FXML
+    //private ComboBox<String> comboBoxRoomType;
 
+    private String sqlAddRooms = "INSERT INTO rooms(status, roomNr, floor, roomId, roomType, price, singleBeds, doubleBeds) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     @FXML
     void closeRoomPopup(ActionEvent event) {
         TopStageBar.close(event, buttonClose);
@@ -65,26 +78,34 @@ public class RoomsPopUpController extends PopUpController {
     }
 
     @FXML
-    public void erstellen(ActionEvent event) {
+    public void createRoom(ActionEvent event) {
         
-        int floor = Integer.parseInt(textFieldFloor.getText());
-        int roomNr = Integer.parseInt(textFieldRoomNumber.getText());
-        String name = textFieldNames.getText();
-        String roomType = comboBoxRoomType.getSelectionModel().getSelectedItem();
-        Long tmp = 0L;
-        if(roomType.equals("Standard Room")){
-        tmp = 1L;
-        } else if(roomType.equals("Luxury Room")){
-            tmp = 2L;
-        }else {
-            tmp = 3L;  
-        }
         try {
-            Room.add(tmp, floor, roomNr, name);
-        } catch (BackendException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sqlAddRooms);
+            String roomnr = ""; 
+            int tmp = Integer.parseInt(textFieldFloor.getText());
+            if (tmp < 10) {
+                roomnr = "0" + textFieldFloor.getText() + textFieldRoomNumber.getText(); 
+            } else {
+                roomnr = textFieldFloor.getText() + textFieldRoomNumber.getText();
+            }
+            double price = Double.parseDouble(this.textFieldPrice.getText());
+            
+            stmt.setString(1, "Frei");
+            stmt.setString(2, roomnr);
+            stmt.setString(3, this.textFieldFloor.getText());
+            stmt.setString(4, this.textFieldRoomNumber.getText());
+            stmt.setString(5, this.textFieldRoomType.getText());
+            stmt.setDouble(6, price);
+            stmt.setString(7, this.textFieldSingleBeds.getText());
+            stmt.setString(8, this.textFieldDoubleBeds.getText());
+            
+            stmt.execute();
+            conn.close();
+    } catch (SQLException e) {
+            e.printStackTrace();
+    }
        
         try {
 
@@ -99,18 +120,14 @@ public class RoomsPopUpController extends PopUpController {
         }
     }
 
-    @FXML
-    void selectRoomType(ActionEvent event) {
-        comboBoxRoomType.getSelectionModel().getSelectedItem().toString();
-    }
+    // @FXML
+    // void selectRoomType(ActionEvent event) {
+    //     comboBoxRoomType.getSelectionModel().getSelectedItem().toString();
+    // }
 
     @FXML
     void initialize() {
-       //fetch data from backend; if exception occurs: display warning and set combobox content to null (empty)
-        ObservableList<String> roomTypeList = BackendExceptionHandler
-                .executeReturnNullIfException(() -> FXCollections.observableArrayList(Room.fetchRoomTypes()));
-
-        comboBoxRoomType.setItems(roomTypeList);
+        //comboBoxRoomType.setItems(roomTypeList);
 
         assert buttonClose != null : "fx:id=\"close\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
         assert textFieldNames != null : "fx:id=\"textFieldNames\" was not injected: check your FXML file 'Rooms_PopUp.fxml'.";
