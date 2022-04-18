@@ -28,54 +28,27 @@
          </padding>
       </HBox>
 
-      <TextField id="TextField_Personal_Name" fx:id="textFieldStaffLastName" layoutX="63.0" layoutY="102.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Name" stylesheets="@../css/Stylesheet.css">
+      <TextField id="TextField_Personal_Name" fx:id="textFieldLastName" layoutX="63.0" layoutY="139.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Name" stylesheets="@../css/Stylesheet.css">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextField id="TextField_Personal_Vorname" fx:id="textFieldStaffFirstName" layoutX="63.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Vorname" stylesheets="@../css/Stylesheet.css">
+      <TextField id="TextField_Personal_Vorname" fx:id="textFieldFirstName" layoutX="63.0" layoutY="251.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Vorname" stylesheets="@../css/Stylesheet.css">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextField id="TextField_Personal_PLZ" fx:id="textFieldStaffPLZ" layoutX="63.0" layoutY="282.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="PLZ" stylesheets="@../css/Stylesheet.css">
+      <TextField id="TextField_Personal_Straße" fx:id="textFieldStreet" layoutX="63.0" layoutY="480.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Straße" stylesheets="@../css/Stylesheet.css">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextField id="TextField_Personal_Stadt" fx:id="textFieldStaffCity" layoutX="63.0" layoutY="342.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Stadt" stylesheets="@../css/Stylesheet.css">
+      <TextField id="TextField_Personal_E-Mail" fx:id="textFieldEMail" layoutX="63.0" layoutY="585.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="E-Mail" stylesheets="@../css/Stylesheet.css">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextField id="TextField_Personal_Straße" fx:id="textFieldStaffStreet" layoutX="63.0" layoutY="404.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Straße" stylesheets="@../css/Stylesheet.css">
-         <font>
-            <Font size="16.0" />
-         </font></TextField>
-      <TextField id="TextField_Personal_HausNr." fx:id="textFieldStaffHouseNr" layoutX="63.0" layoutY="464.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="HausNr." stylesheets="@../css/Stylesheet.css">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
-      <TextField id="TextField_Personal_E-Mail" fx:id="textFieldStaffEMail" layoutX="63.0" layoutY="585.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="E-Mail" stylesheets="@../css/Stylesheet.css">
-         <font>
-            <Font size="16.0" />
-         </font></TextField>
-      <TextField id="TextField_Personal_TelefonNr." fx:id="textFieldStaffPhoneNr" layoutX="63.0" layoutY="645.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="TelefonNr." stylesheets="@../css/Stylesheet.css">
-         <font>
-            <Font size="16.0" />
-         </font></TextField>
-      <TextField id="Textfield_Personal_Geschlecht" fx:id="textFieldStaffGender" layoutX="63.0" layoutY="705.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="389.0" promptText="Geschlecht" stylesheets="@../css/Stylesheet.css">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
-      <TextField id="Textfield_Personal_Land" fx:id="textFieldStaffState" layoutX="63.0" layoutY="525.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="398.0" promptText="Land" stylesheets="@../css/Stylesheet.css">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
       <Button id="Button_Reservierung_Reservieren" fx:id="buttonStaffPopUp" alignment="CENTER" layoutX="158.0" layoutY="765.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#create" prefHeight="45.0" prefWidth="207.0" styleClass="PopUp-button" stylesheets="@../css/Stylesheet.css" text="Bestätigen" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <DatePicker fx:id="datePickerStaffBirthDate" layoutX="63.0" layoutY="222.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#getBirthDate" prefHeight="42.0" prefWidth="398.0" promptText="Geburtsdatum" style="-fx-font-size: 16;" stylesheets="@../css/Stylesheet.css" />
+      <DatePicker fx:id="datePickerBirthDate" layoutX="63.0" layoutY="368.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#getBirthDate" prefHeight="42.0" prefWidth="398.0" promptText="Geburtsdatum" style="-fx-font-size: 16;" stylesheets="@../css/Stylesheet.css" />
       <Text fx:id="textBirthDate" layoutX="731.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </Pane>

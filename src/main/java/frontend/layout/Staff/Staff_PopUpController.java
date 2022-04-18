@@ -13,9 +13,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 
 import frontend.data.Staff;
+import frontend.dbUtil.dbConnection;
 
 public class Staff_PopUpController extends PopUpController {
 
@@ -23,37 +27,20 @@ public class Staff_PopUpController extends PopUpController {
     private Button buttonStaffPopUp;
 
     @FXML
-    private TextField textFieldStaffEMail;
+    private TextField textFieldEMail;
 
     @FXML
-    private DatePicker datePickerStaffBirthDate;
+    private DatePicker datePickerBirthDate;
 
     @FXML
-    private TextField textFieldStaffFirstName;
+    private TextField textFieldFirstName;
 
     @FXML
-    private TextField textFieldStaffPLZ;
+    private TextField textFieldStreet;
 
     @FXML
-    private TextField textFieldStaffCity;
+    private TextField textFieldLastName;
 
-    @FXML
-    private TextField textFieldStaffStreet;
-
-    @FXML
-    private TextField textFieldStaffPhoneNr;
-
-    @FXML
-    private TextField textFieldStaffLastName;
-
-    @FXML
-    private TextField textFieldStaffGender;
-
-    @FXML
-    private TextField textFieldStaffHouseNr;
-
-    @FXML
-    private TextField textFieldStaffState;
 
     @FXML
     private Button buttonClose;
@@ -67,6 +54,7 @@ public class Staff_PopUpController extends PopUpController {
     @FXML
     private Text textBirthDate;
 
+    private String sqlAddStaff = "INSERT INTO person(lastName, firstName, DOB, steet, email, role) VALUES (?, ?, ?, ? ,? ,?)";
     @FXML
     void closeStaffPopup(ActionEvent event) {
          TopStageBar.close(event, buttonClose);
@@ -89,72 +77,79 @@ public class Staff_PopUpController extends PopUpController {
     }
 
     public void getBirthDate(ActionEvent event){
-        String birthDate = datePickerStaffBirthDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String birthDate = datePickerBirthDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         textBirthDate.setText(birthDate);
     }
 
     @FXML
-    public void  create(ActionEvent event) {
-        String firstName = textFieldStaffFirstName.getText();
-        String lastName = textFieldStaffLastName.getText();
-        String phone = textFieldStaffPhoneNr.getText();
-        String gender = textFieldStaffGender.getText();
-        int genderToInt = Integer.parseInt(gender);
-        String street = textFieldStaffStreet.getText();
-        String houseNR = textFieldStaffHouseNr.getText();
-        int houseNRToInt = Integer.parseInt(houseNR);
-        String city = textFieldStaffCity.getText();
-        String state = textFieldStaffState.getText();
-        String zip = textFieldStaffPLZ.getText();
-        String email = textFieldStaffEMail.getText();
-
-           
-           try {
-                Staff.add(firstName, lastName, email, phone, genderToInt, street, houseNRToInt, city, state, zip);
-        } catch (BackendException e) {
-                // TODO Auto-generated catch block
+    public void create(ActionEvent event) {
+        
+        try {
+                Connection conn = dbConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sqlAddStaff);
+                
+                stmt.setString(1, this.textFieldLastName.getText());
+                stmt.setString(2, this.textFieldFirstName.getText());
+                stmt.setString(3, this.datePickerBirthDate.getEditor().getText());
+                stmt.setString(4, this.textFieldStreet.getText());
+                stmt.setString(5, this.textFieldEMail.getText());
+                stmt.setString(6, "staff");
+                
+                stmt.execute();
+                conn.close();
+        
+        } catch (SQLException e) {
                 e.printStackTrace();
         }
+
         try{
         
-            closeStaffPopup(event);
+                     closeStaffPopup(event);
+        
+                 }catch (Exception exception){
+                     buttonStaffPopUp.setDisable(true);
+                     FxHelper.displayPopUp("Error_PopUp", () -> {
+                         buttonStaffPopUp.setDisable(false);
+                     });
+                     System.out.println(exception);
+                 }
+        
+        
+        // String firstName = textFieldStaffFirstName.getText();
+        // String lastName = textFieldStaffLastName.getText();
+        // String phone = textFieldStaffPhoneNr.getText();
+        // String gender = textFieldStaffGender.getText();
+        // int genderToInt = Integer.parseInt(gender);
+        // String street = textFieldStaffStreet.getText();
+        // String houseNR = textFieldStaffHouseNr.getText();
+        // int houseNRToInt = Integer.parseInt(houseNR);
+        // String city = textFieldStaffCity.getText();
+        // String state = textFieldStaffState.getText();
+        // String zip = textFieldStaffPLZ.getText();
+        // String email = textFieldStaffEMail.getText();
 
-        }catch (Exception exception){
-            buttonStaffPopUp.setDisable(true);
-            FxHelper.displayPopUp("Error_PopUp", () -> {
-                buttonStaffPopUp.setDisable(false);
-            });
-            System.out.println(exception);
-        }
+           
+        //    try {
+        //         Staff.add(firstName, lastName, email, phone, genderToInt, street, houseNRToInt, city, state, zip);
+        // } catch (BackendException e) {
+        //         // TODO Auto-generated catch block
+        //         e.printStackTrace();
+        // }
+        // try{
+        
+        //     closeStaffPopup(event);
+
+        // }catch (Exception exception){
+        //     buttonStaffPopUp.setDisable(true);
+        //     FxHelper.displayPopUp("Error_PopUp", () -> {
+        //         buttonStaffPopUp.setDisable(false);
+        //     });
+        //     System.out.println(exception);
+        // }
     }
 
     @FXML
     void initialize() {
-        assert buttonStaffPopUp != null
-                : "fx:id=\"Button_Staff_PopUp\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffEMail != null
-                : "fx:id=\"TextField_Staff_E_Mail\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert datePickerStaffBirthDate != null
-                : "fx:id=\"DatePicker_Staff_BirthDate\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffFirstName != null
-                : "fx:id=\"TextField_Staff_FirstName\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffPLZ != null
-                : "fx:id=\"TextField_Staff_PLZ\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffCity != null
-                : "fx:id=\"TextField_Staff_City\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffStreet != null
-                : "fx:id=\"TextField_Staff_Street\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffPhoneNr != null
-                : "fx:id=\"TextField_Staff_PhoneNr\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffLastName != null
-                : "fx:id=\"TextField_Staff_SecondName\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffHouseNr != null
-                : "fx:id=\"TextField_Staff_HouseNr\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffState != null
-                : "fx:id=\"TextField_Staff_State\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-        assert textFieldStaffGender != null
-                : "fx:id=\"TextField_Staff_Gender\" was not injected: check your FXML file 'Staff_PopUp.fxml'.";
-
+        
     }
-
 }
