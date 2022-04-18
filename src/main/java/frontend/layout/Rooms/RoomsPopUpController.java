@@ -83,17 +83,12 @@ public class RoomsPopUpController extends PopUpController {
         try {
             Connection conn = dbConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sqlAddRooms);
-            String roomnr = ""; 
-            int tmp = Integer.parseInt(textFieldFloor.getText());
-            if (tmp < 10) {
-                roomnr = "0" + textFieldFloor.getText() + textFieldRoomNumber.getText(); 
-            } else {
-                roomnr = textFieldFloor.getText() + textFieldRoomNumber.getText();
-            }
+            int floorAsInt = Integer.parseInt(textFieldFloor.getText());
+            int roomIdAsInt = Integer.parseInt(textFieldRoomNumber.getText());
             double price = Double.parseDouble(this.textFieldPrice.getText());
             
             stmt.setString(1, "Frei");
-            stmt.setString(2, roomnr);
+            stmt.setString(2, fourdigits(floorAsInt, roomIdAsInt));
             stmt.setString(3, this.textFieldFloor.getText());
             stmt.setString(4, this.textFieldRoomNumber.getText());
             stmt.setString(5, this.textFieldRoomType.getText());
@@ -117,6 +112,24 @@ public class RoomsPopUpController extends PopUpController {
             FxHelper.displayPopUp("Error_PopUp", () -> {
                 buttonAdd.setDisable(false);
             });
+        }
+    }
+
+    public String fourdigits(int floor, int roomId){
+        String roomNr = "";
+
+        if (floor < 10 && roomId >= 10) {
+            roomNr = "0" + textFieldFloor.getText() + textFieldRoomNumber.getText(); 
+            return roomNr;
+        } else if (floor >= 10 && roomId < 10) {
+            roomNr =  textFieldFloor.getText() + "0" + textFieldRoomNumber.getText(); 
+            return roomNr;
+        } else if (floor < 10 && roomId < 10) {
+            roomNr = "0" + textFieldFloor.getText() + "0" + textFieldRoomNumber.getText(); 
+            return roomNr;
+        } else {
+            roomNr = textFieldFloor.getText() + textFieldRoomNumber.getText();
+            return roomNr;
         }
     }
 
