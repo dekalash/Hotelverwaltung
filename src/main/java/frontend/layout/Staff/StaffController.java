@@ -120,9 +120,10 @@ public class StaffController extends MainController {
 
     @FXML
     void initialize() {
+        this.table = new ContextMenuTable<PersonData>(tableViewStaff, () -> staffList);
         this.dc = new dbConnection();
         loadStaffData();
-        //FIXME: setUpMenuItems();
+        setUpMenuItems();
         editCellFactories();
 
 
