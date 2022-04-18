@@ -31,6 +31,9 @@ public class RoomsController extends MainController {
     private Button buttonCreateRoom;
 
     @FXML
+    private Button buttonReloadRooms;
+
+    @FXML
     private TableColumn<RoomsData, String> columnIndicator;
 
     @FXML
