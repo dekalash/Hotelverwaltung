@@ -1,6 +1,7 @@
 package frontend.layout.Rooms;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -52,8 +53,10 @@ public class RoomsController extends MainController {
     private static final String MENU_ITEM_DELETE = "löschen";
     
     private String sqlloadRoomsData = "SELECT * FROM rooms";
+    private String sqlDeleteRooms = "DELETE FROM rooms where roomNr = ?";
     private ContextMenuTable<RoomsData> table;
-
+    private String sqlSetStatusRoomsToFrei = "UPDATE rooms set status = 'Frei' WHERE roomNr = ?";
+    private String sqlSetStatusRoomsToWartung = "UPDATE rooms set status = 'Wartung' WHERE roomNr = ?";
     private dbConnection dc;
 
     static ObservableList<RoomsData> roomList;
@@ -116,13 +119,14 @@ public class RoomsController extends MainController {
     /**
      * Initializes the context menu.
      */
-    //  private void setUpMenuItems() {
-    //      table.addAutoUpdatingMenuItem(MENU_ITEM_MAINTENANCE, room -> room.setIndicator(IndicatorEnum.Gewartet));
-    //      table.addAutoUpdatingMenuItem(MENU_ITEM_DELETE, room -> {
-    //         BackendExceptionHandler.execute( () -> tableView.getItems().removeAll(room));
-    //      });
-    //  }
-
+      private void setUpMenuItems() {
+         //table.addAutoUpdatingMenuItem(MENU_ITEM_MAINTENANCE, room -> room.setIndicator(IndicatorEnum.Gewartet));
+         this.table.addAutoUpdatingMenuItem("Wartung ein/aus", (room) -> setStatusRooms());
+         this.table.addAutoUpdatingMenuItem("Löschen", (room) -> deleteRooms());
+         //table.addAutoUpdatingMenuItem(MENU_ITEM_DELETE, room -> {
+            // BackendExceptionHandler.execute( () -> tableViewRooms.getItems().removeAll(room));
+      }
+    
     public void loadRoomsData(){
 
         try {
@@ -142,6 +146,47 @@ public class RoomsController extends MainController {
         }
         setUpCellFactories();
     }
+    
+    public void setStatusRooms(){
+        RoomsData room = tableViewRooms.getSelectionModel().getSelectedItem();
+        String roomNr = room.getRoomNr();
+        String currentStatus = room.getStatus();
+        try {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt; 
+            
+            if(currentStatus.equals("Frei") || currentStatus.equals("Gebucht")) {
+                stmt = conn.prepareStatement(sqlSetStatusRoomsToWartung);
+                stmt.setString(1, roomNr);
+                stmt.execute();
+            } else {
+                stmt = conn.prepareStatement(sqlSetStatusRoomsToFrei);
+                stmt.setString(1, roomNr);
+                stmt.execute();
+            }
+            conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                
+    }
+    
+    public void deleteRooms(){
+        RoomsData room = tableViewRooms.getSelectionModel().getSelectedItem();
+        String roomNr = room.getRoomNr();
+        try {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sqlDeleteRooms);
+        
+            stmt.setString(1, roomNr);
+            stmt.execute();
+            conn.close();
+            tableViewRooms.getItems().removeAll(room);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                
+    }
     /**
      * Executed when right clicking the table view.
      */
@@ -154,7 +199,8 @@ public class RoomsController extends MainController {
         this.dc = new dbConnection();
         loadRoomsData();
         //table = new ContextMenuTable<RoomsData>(tableView, () -> roomList);
-        //setUpMenuItems();
+        this.table = new ContextMenuTable<RoomsData>(tableViewRooms, () -> roomList);
+        setUpMenuItems();
         //editCellFactories();
     }
 
