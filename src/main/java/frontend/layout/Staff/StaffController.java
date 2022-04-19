@@ -123,7 +123,8 @@ public class StaffController extends MainController {
         setUpCellFactories();
     }
     public void deleteStaff(){
-        String email = tableViewStaff.getSelectionModel().getSelectedItem().getEmail();
+        PersonData staff = tableViewStaff.getSelectionModel().getSelectedItem();
+        String email = staff.getEmail();
         try {
             Connection conn = dbConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sqlDeleteStaff);
@@ -131,14 +132,11 @@ public class StaffController extends MainController {
             stmt.setString(1, email);
             stmt.execute();
             conn.close();
-                
+            tableViewStaff.getItems().removeAll(staff); 
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                
-                
-                
-
+    
     }
     @FXML
     void initialize() {
