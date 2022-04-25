@@ -2,6 +2,7 @@ package frontend.layout.Home;
 
 import frontend.data.Booking;
 import frontend.data.IndicatorEnum;
+import frontend.dbUtil.dbConnection;
 import frontend.layout.Booking.BookingController;
 import frontend.layout.Rooms.RoomsController;
 import frontend.util.MainController;
@@ -13,6 +14,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -54,7 +58,7 @@ public class HomeController extends MainController{
 
     Table<Booking> tableActuel;
     Table<Booking> tablePending;
-
+    
 
     // private void getBookedRoomsNumber(){
     //    long bookedRoomsNumber = RoomsController.getRoomList1().stream().filter(room -> room.getIndicator() == IndicatorEnum.Gebucht).count();
@@ -77,7 +81,9 @@ public class HomeController extends MainController{
     //         textFreeRooms.setText(string);
     //     }
     // }
-
+    
+      
+    
     private ObservableList<Booking> getBookedRoomsActual(){
         ObservableList<Booking> bookinglist = BookingController.getBookingListActualy();
 
