@@ -57,6 +57,7 @@ public class RoomsController extends MainController {
     private ContextMenuTable<RoomsData> table;
     private String sqlSetStatusRoomsToFrei = "UPDATE rooms set status = 'Frei' WHERE roomNr = ?";
     private String sqlSetStatusRoomsToWartung = "UPDATE rooms set status = 'Wartung' WHERE roomNr = ?";
+    private String sqlCountFreeRooms = "SELECT COUNT (*) FROM rooms WHERE status = 'Frei'";
     private dbConnection dc;
 
     static ObservableList<RoomsData> roomList;
@@ -120,11 +121,8 @@ public class RoomsController extends MainController {
      * Initializes the context menu.
      */
       private void setUpMenuItems() {
-         //table.addAutoUpdatingMenuItem(MENU_ITEM_MAINTENANCE, room -> room.setIndicator(IndicatorEnum.Gewartet));
          this.table.addAutoUpdatingMenuItem("Wartung ein/aus", (room) -> setStatusRooms());
-         this.table.addAutoUpdatingMenuItem("Löschen", (room) -> deleteRooms());
-         //table.addAutoUpdatingMenuItem(MENU_ITEM_DELETE, room -> {
-            // BackendExceptionHandler.execute( () -> tableViewRooms.getItems().removeAll(room));
+         this.table.addAutoUpdatingMenuItem("Löschen", (room) -> deleteRooms());     
       }
     
     public void loadRoomsData(){
@@ -186,6 +184,27 @@ public class RoomsController extends MainController {
                     e.printStackTrace();
                 }
                 
+    }
+    private void getFreeRoomsNumber(){
+        
+        try {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sqlCountFreeRooms);
+       
+           stmt.setString(1, email);
+            stmt.execute();
+            conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+       
+       
+        if(freeRoomsNumberString.length() != 1){
+            textFreeRooms.setText(freeRoomsNumberString);
+        }else{
+            String string = "0" + freeRoomsNumberString;
+            textFreeRooms.setText(string);
+        }
     }
     /**
      * Executed when right clicking the table view.
