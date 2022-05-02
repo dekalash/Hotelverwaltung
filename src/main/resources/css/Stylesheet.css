@@ -9,6 +9,16 @@
     -fx-pref-column-count : 25;
 }
 
+.combo-box{
+    -fx-border-width: 3px;
+    -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
+    -fx-pref-column-count : 25;
+    
+}
+.combo-box .list-cell {
+    -fx-font-size: 18;
+}
 
 .button {
     -fx-background-color:  #e6e6e6;

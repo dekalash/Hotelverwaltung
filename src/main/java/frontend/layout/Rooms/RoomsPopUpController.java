@@ -50,10 +50,12 @@ public class RoomsPopUpController extends PopUpController {
     @FXML
     private HBox roomTopPane;
 
-    //@FXML
-    //private ComboBox<String> comboBoxRoomType;
-
+    @FXML
+    private ComboBox<String> comboBoxRoomType;
+    RoomTypeENUM roomType;
+    public enum RoomTypeENUM {Bilo, Normal, Krass}
     private String sqlAddRooms = "INSERT INTO rooms(status, roomNr, floor, roomId, roomType, price, singleBeds, doubleBeds) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    
     @FXML
     void closeRoomPopup(ActionEvent event) {
         TopStageBar.close(event, buttonClose);
@@ -91,7 +93,7 @@ public class RoomsPopUpController extends PopUpController {
             stmt.setString(2, fourdigits(floorAsInt, roomIdAsInt));
             stmt.setString(3, this.textFieldFloor.getText());
             stmt.setString(4, this.textFieldRoomNumber.getText());
-            stmt.setString(5, this.textFieldRoomType.getText());
+            stmt.setString(5, comboBoxRoomType.getSelectionModel().getSelectedItem().toString());
             stmt.setDouble(6, price);
             stmt.setString(7, this.textFieldSingleBeds.getText());
             stmt.setString(8, this.textFieldDoubleBeds.getText());
@@ -132,15 +134,16 @@ public class RoomsPopUpController extends PopUpController {
             return roomNr;
         }
     }
-
-    // @FXML
-    // void selectRoomType(ActionEvent event) {
-    //     comboBoxRoomType.getSelectionModel().getSelectedItem().toString();
-    // }
-
+    void setupComboBox(){
+        ObservableList<String> roomTypeList = FXCollections.observableArrayList();
+        roomTypeList.add(RoomTypeENUM.Bilo.toString());
+        roomTypeList.add(RoomTypeENUM.Normal.toString());
+        roomTypeList.add(RoomTypeENUM.Krass.toString());
+        comboBoxRoomType.setItems(roomTypeList);
+    }
     @FXML
     void initialize() {
-        //comboBoxRoomType.setItems(roomTypeList);
+        setupComboBox();
 
 
     }
