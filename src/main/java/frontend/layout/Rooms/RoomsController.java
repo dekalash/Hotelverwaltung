@@ -185,8 +185,9 @@ public class RoomsController extends MainController {
                 }
                 
     }
+    //TODO: Muss noch gemacht werden SIUUUU
     private void getFreeRoomsNumber(){
-        
+        String email ="";
         try {
             Connection conn = dbConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sqlCountFreeRooms);
@@ -199,12 +200,7 @@ public class RoomsController extends MainController {
                 }
        
        
-        if(freeRoomsNumberString.length() != 1){
-            textFreeRooms.setText(freeRoomsNumberString);
-        }else{
-            String string = "0" + freeRoomsNumberString;
-            textFreeRooms.setText(string);
-        }
+    
     }
     /**
      * Executed when right clicking the table view.
