@@ -58,7 +58,7 @@ public class HomeController extends MainController{
 
     Table<Booking> tableActuel;
     Table<Booking> tablePending;
-    
+    RoomsController rc ;
 
     // private void getBookedRoomsNumber(){
     //    long bookedRoomsNumber = RoomsController.getRoomList1().stream().filter(room -> room.getIndicator() == IndicatorEnum.Gebucht).count();
@@ -71,17 +71,32 @@ public class HomeController extends MainController{
     //     }
     // }
 
-    // private void getFreeRoomsNumber(){
-    //     long freeRoomsNumber = RoomsController.getRoomList1().stream().filter(room -> room.getIndicator() == IndicatorEnum.Frei).count();
-    //     String freeRoomsNumberString = String.valueOf(freeRoomsNumber);
-    //     if(freeRoomsNumberString.length() != 1){
-    //         textFreeRooms.setText(freeRoomsNumberString);
-    //     }else{
-    //         String string = "0" + freeRoomsNumberString;
-    //         textFreeRooms.setText(string);
-    //     }
-    // }
-    
+     private void getFreeRoomsNumber(){
+        rc = new RoomsController(); 
+        int freeRoomsNumber = rc.getFreeRoomsNumber();
+        String freeRoomsNumberString = String.valueOf(freeRoomsNumber);
+         
+         
+         if(freeRoomsNumberString.length() != 1){
+             textFreeRooms.setText(freeRoomsNumberString);
+         }else{
+             String string2 = "0" + freeRoomsNumberString;
+             textFreeRooms.setText(string2);
+         }
+     }
+     private void getBookedRoomsNumber(){
+        rc = new RoomsController(); 
+        int bookedRoomsNumber = rc.getBookedRoomsNumber();
+        String bookedRoomsNumberString = String.valueOf(bookedRoomsNumber);
+         
+         
+         if(bookedRoomsNumberString.length() != 1){
+             textBookedRooms.setText(bookedRoomsNumberString);
+         }else{
+             String string2 = "0" + bookedRoomsNumberString;
+             textBookedRooms.setText(string2);
+         }
+     }
       
     
     private ObservableList<Booking> getBookedRoomsActual(){
@@ -108,8 +123,8 @@ public class HomeController extends MainController{
 
     @FXML
     void initialize() {
-       //getFreeRoomsNumber();
-       //getBookedRoomsNumber();
+       getFreeRoomsNumber();
+       getBookedRoomsNumber();
 
 
         
