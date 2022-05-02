@@ -18,7 +18,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-
+//TODO: Delete price from popup
 public class RoomsPopUpController extends PopUpController {
 
     @FXML
@@ -87,14 +87,13 @@ public class RoomsPopUpController extends PopUpController {
             PreparedStatement stmt = conn.prepareStatement(sqlAddRooms);
             int floorAsInt = Integer.parseInt(textFieldFloor.getText());
             int roomIdAsInt = Integer.parseInt(textFieldRoomNumber.getText());
-            double price = Double.parseDouble(this.textFieldPrice.getText());
-            
+            String roomType = comboBoxRoomType.getSelectionModel().getSelectedItem().toString();
             stmt.setString(1, "Frei");
             stmt.setString(2, fourdigits(floorAsInt, roomIdAsInt));
             stmt.setString(3, this.textFieldFloor.getText());
             stmt.setString(4, this.textFieldRoomNumber.getText());
-            stmt.setString(5, comboBoxRoomType.getSelectionModel().getSelectedItem().toString());
-            stmt.setDouble(6, price);
+            stmt.setString(5, roomType);
+            stmt.setDouble(6, setPrice(roomType));
             stmt.setString(7, this.textFieldSingleBeds.getText());
             stmt.setString(8, this.textFieldDoubleBeds.getText());
             
@@ -117,6 +116,19 @@ public class RoomsPopUpController extends PopUpController {
         }
     }
 
+    public double setPrice(String roomType){
+        double price = 0.0;
+        if (roomType.equals("Bilo")) {
+            price = 100.00;
+            return price;
+        } else if (roomType.equals("Normal")) {
+            price = 250.00; 
+            return price;
+        } else {
+            price = 10000.00;
+            return price;
+        }
+    }
     public String fourdigits(int floor, int roomId){
         String roomNr = "";
 
