@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
 import frontend.data.Room;
 import frontend.dbUtil.dbConnection;
 import frontend.util.BackendException;
@@ -55,7 +56,8 @@ public class RoomsPopUpController extends PopUpController {
     RoomTypeENUM roomType;
     public enum RoomTypeENUM {Billo, Normal, Krass}
     private String sqlAddRooms = "INSERT INTO rooms(status, roomNr, floor, roomId, roomType, price, singleBeds, doubleBeds) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    
+    public final static double PRICEPERSINGLEBED = 20.00;
+    public final static double PRICEPERDOUBLEBED = 40.00;
     @FXML
     void closeRoomPopup(ActionEvent event) {
         TopStageBar.close(event, buttonClose);
@@ -93,7 +95,7 @@ public class RoomsPopUpController extends PopUpController {
             stmt.setString(3, this.textFieldFloor.getText());
             stmt.setString(4, this.textFieldRoomNumber.getText());
             stmt.setString(5, roomType);
-            stmt.setDouble(6, setPrice(roomType));
+            stmt.setDouble(6, calcPrice(setPrice(roomType)));
             stmt.setString(7, this.textFieldSingleBeds.getText());
             stmt.setString(8, this.textFieldDoubleBeds.getText());
             
@@ -146,6 +148,28 @@ public class RoomsPopUpController extends PopUpController {
             return roomNr;
         }
     }
+    public double calcPrice(double price){
+
+        double singleBeds = Double.parseDouble(this.textFieldSingleBeds.getText());    
+        double doubleBeds = Double.parseDouble(this.textFieldDoubleBeds.getText());
+        
+        if (singleBeds == 0 && doubleBeds > 0) {
+            price = price + doubleBeds * PRICEPERDOUBLEBED;
+            return price;
+        } else if (singleBeds > 0 && doubleBeds == 0) {
+            price = price + singleBeds * PRICEPERSINGLEBED;
+            return price;
+        } else if (singleBeds > 0 && doubleBeds > 0) {
+            price = price + singleBeds * PRICEPERSINGLEBED;
+            price = price + doubleBeds * PRICEPERDOUBLEBED;
+            return price;
+        } else {
+            return price;
+        } 
+
+        }
+    
+    
     void setupComboBox(){
         ObservableList<String> roomTypeList = FXCollections.observableArrayList();
         roomTypeList.add(RoomTypeENUM.Billo.toString());
