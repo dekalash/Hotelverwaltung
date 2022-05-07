@@ -53,7 +53,7 @@ public class RoomsPopUpController extends PopUpController {
     @FXML
     private ComboBox<String> comboBoxRoomType;
     RoomTypeENUM roomType;
-    public enum RoomTypeENUM {Bilo, Normal, Krass}
+    public enum RoomTypeENUM {Billo, Normal, Krass}
     private String sqlAddRooms = "INSERT INTO rooms(status, roomNr, floor, roomId, roomType, price, singleBeds, doubleBeds) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     
     @FXML
@@ -118,7 +118,7 @@ public class RoomsPopUpController extends PopUpController {
 
     public double setPrice(String roomType){
         double price = 0.0;
-        if (roomType.equals("Bilo")) {
+        if (roomType.equals("Billo")) {
             price = 100.00;
             return price;
         } else if (roomType.equals("Normal")) {
@@ -148,7 +148,7 @@ public class RoomsPopUpController extends PopUpController {
     }
     void setupComboBox(){
         ObservableList<String> roomTypeList = FXCollections.observableArrayList();
-        roomTypeList.add(RoomTypeENUM.Bilo.toString());
+        roomTypeList.add(RoomTypeENUM.Billo.toString());
         roomTypeList.add(RoomTypeENUM.Normal.toString());
         roomTypeList.add(RoomTypeENUM.Krass.toString());
         comboBoxRoomType.setItems(roomTypeList);
